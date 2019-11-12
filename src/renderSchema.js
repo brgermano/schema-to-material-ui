@@ -16,17 +16,9 @@ function verifySchemaType(currentField) {
 }
 
 function renderArraySchema(currentField) {
-  const tagName = Object.keys(currentField[0])[0]
-  let fieldTag;
+  const tagsName = currentField.map(item => Object.keys(item)[0])
+  return returnTags(tagsName)
 
-  switch (tagName) {
-    case 'input':
-      fieldTag = createElement(TextField, { placeholder: 'Retornou :)' });
-      break;
-    default:
-      fieldTag = createElement('h1', 'Ola td bem')
-  }
-  return fieldTag;
   /*
   const mapProps = props =>
     Object.entries(Object.values(props)[0]).map(
@@ -41,6 +33,16 @@ function renderArraySchema(currentField) {
   );
   return result.toString().replace(/,/g, "");
   */
+}
+
+function returnTags(tagsName) {
+  const checkInputs = tagsName.map(item => item === 'input');
+
+  if (checkInputs.filter(item => item)) {
+    return tagsName.map(item =>
+      createElement(TextField, { placeholder: 'dawdRetornou :)' })
+    )
+  }
 }
 
 function renderObjectSchema(currentField) {

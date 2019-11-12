@@ -27,7 +27,7 @@ export const schema = {
       }
     },
     {
-      input: {
+      button: {
         placeholder: "Ola td bem",
         label: "CPF",
         defaultValue: "Digite seu cpf"

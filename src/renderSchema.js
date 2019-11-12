@@ -16,33 +16,19 @@ function verifySchemaType(currentField) {
 }
 
 function renderArraySchema(currentField) {
-  const tagsName = currentField.map(item => Object.keys(item)[0])
-  return returnTags(tagsName)
-
-  /*
-  const mapProps = props =>
-    Object.entries(Object.values(props)[0]).map(
-      item => `${item[0]}="${item[1]}"`
-    );
-
-  let result = currentField.map(
-    item =>
-      `<${Object.keys(item)[0]}
-       ${mapProps(item)}
-      />`
-  );
-  return result.toString().replace(/,/g, "");
-  */
+  const tags =
+    currentField.map(item =>
+      { return { name: Object.keys(item)[0], props: Object.values(item)[0] } })
+  return renderTags(tags)
 }
 
-function returnTags(tagsName) {
-  const checkInputTypeExist = tagsName.map(item => item === 'input')
+function renderTags(tags) {
+  const checkInputTypeExist = tags.map(item => item.name === 'input')
   .filter(item => item);
 
   if (checkInputTypeExist) {
-    return tagsName.map(item =>
-      createElement(TextField, { placeholder: 'dawdRetornou :)' })
-    )
+    return tags.filter(item => item.name === 'input')
+      .map(item => createElement(TextField, item.props))
   }
 }
 

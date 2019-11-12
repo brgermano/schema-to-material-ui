@@ -27,6 +27,36 @@ export const schema = {
       }
     },
     {
+      input: {
+        type: "number",
+        placeholder: "seu celular"
+      }
+    },
+    {
+      input: {
+        type: "number",
+        placeholder: "seu celular"
+      }
+    },
+    {
+      input: {
+        type: "number",
+        placeholder: "seu celular"
+      }
+    },
+    {
+      input: {
+        type: "number",
+        placeholder: "seu celular"
+      }
+    },
+    {
+      input: {
+        type: "number",
+        placeholder: "AAAAAAAAAAAA"
+      }
+    },
+    {
       button: {
         placeholder: "Ola td bem",
         label: "CPF",

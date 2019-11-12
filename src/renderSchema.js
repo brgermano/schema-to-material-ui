@@ -36,9 +36,10 @@ function renderArraySchema(currentField) {
 }
 
 function returnTags(tagsName) {
-  const checkInputs = tagsName.map(item => item === 'input');
+  const checkInputTypeExist = tagsName.map(item => item === 'input')
+  .filter(item => item);
 
-  if (checkInputs.filter(item => item)) {
+  if (checkInputTypeExist) {
     return tagsName.map(item =>
       createElement(TextField, { placeholder: 'dawdRetornou :)' })
     )
